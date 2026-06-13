@@ -1,0 +1,23 @@
+# Netlify configuration file
+# This file tells Netlify how to build and serve the dashboard
+
+[build]
+  # Since this is a static site, no build command is needed
+  command = ""
+  publish = "."
+
+[context.production]
+  command = ""
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
